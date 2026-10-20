@@ -1,0 +1,22 @@
+{
+  "name": "sadiq3dportfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A lightweight interactive Three.js studio portfolio",
+  "scripts": {
+    "start": "python server.py",
+    "check": "node --check app.js",
+    "test": "node test-controls.mjs",
+    "verify": "python check_project.py"
+  },
+  "keywords": [
+    "threejs",
+    "portfolio",
+    "3d",
+    "interactive",
+    "webgl"
+  ],
+  "author": "Sadiq Ali",
+  "license": "MIT"
+}
