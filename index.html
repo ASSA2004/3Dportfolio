@@ -1,23 +1,75 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#eeeae2">
-  <meta name="description" content="Explore Sadiq Ali’s interactive studio. Full-stack products, mobile applications, and creative development.">
+  <meta name="description"
+    content="Explore Sadiq Ali’s interactive studio. Full-stack products, mobile applications, and creative development.">
   <title>Sadiq Ali — The Interactive Studio</title>
   <link rel="stylesheet" href="./style.css">
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
 </head>
+
 <body>
-  <header><a class="brand" href="./" aria-label="Sadiq Ali home">sa<span>®</span></a><span class="edition">PERSONAL SPACE / VOL. 01</span><a class="availability" href="https://mail.google.com/mail/?view=cm&fs=1&to=sadiqilaqidas@gmail.com" target="_blank" rel="noopener noreferrer"><i></i> Let’s build something <span>↗</span></a></header>
-  <div id="game-hud" hidden><div class="game-toolbar"><button id="exit-room">← Portfolio view</button><div><button id="walk-mode" aria-pressed="true">Walk</button><button id="orbit-mode" aria-pressed="false">Orbit</button></div><button id="game-index">Portfolio index ☷</button></div><div id="crosshair" aria-hidden="true">+</div><div id="walk-prompt"><p id="game-help">WASD / ↑↓←→ move · Mouse look<br>Click / E interact · Esc release</p><button id="capture-mouse">Enable mouse look</button></div><p id="aim-label" role="status"></p></div>
+  <header><a class="brand" href="./" aria-label="Sadiq Ali home">sa</a><span class="edition">PERSONAL SPACE</span><a
+      class="availability" href="https://mail.google.com/mail/?view=cm&fs=1&to=sadiqilaqidas@gmail.com" target="_blank"
+      rel="noopener noreferrer"><i></i> Let’s build something <span>↗</span></a></header>
+  <div id="game-hud" hidden>
+    <div class="game-toolbar"><button id="exit-room">← Portfolio view</button>
+      <div><button id="walk-mode" aria-pressed="true">Walk</button><button id="orbit-mode"
+          aria-pressed="false">Orbit</button></div><button id="game-index">Portfolio index ☷</button>
+    </div>
+    <div id="crosshair" aria-hidden="true">+</div>
+    <div id="walk-prompt">
+      <p id="game-help">WASD / ↑↓←→ move · Mouse look<br>Click / E interact · Esc release</p><button
+        id="capture-mouse">Enable mouse look</button>
+    </div>
+    <p id="aim-label" role="status"></p>
+  </div>
   <main>
-    <section class="intro"><p class="eyebrow">DEVELOPER. MAKER. EXPLORER.</p><h1>A little room.<br> A world of <em>ideas.</em></h1><p class="description">I’m Sadiq, a product developer in Chennai.</p><div class="intro-actions"><button class="primary" data-section="projects">Explore my work <span>↗</span></button><button class="text-button" id="standard">Portfolio index <span>☷</span></button></div></section>
-    <section class="stage" aria-label="Interactive 3D portfolio room"><canvas id="scene" tabindex="0" aria-label="Room: drag to orbit, scroll to zoom, WASD or arrows to move. Use the section buttons to access all content."></canvas><div class="stage-caption"><span><i></i> SADIQ’S STUDIO</span><span id="scene-status" role="status">Loading room…</span></div><div id="loader"><span class="loader-mark">sa.</span><p id="load-label">Unpacking the studio…</p><progress id="progress" max="100" value="0"></progress><button class="text-button" data-section="projects">Browse portfolio while you wait ↗</button></div><div id="tooltip" role="status"></div><div class="view-tools"><button id="reset" aria-label="Reset camera">↺ <span>Reset view</span></button><button id="quality" aria-label="Toggle scene rendering quality">Eco quality</button><button id="enter-room" class="enter-room" aria-label="Enter 3D room">Enter room ↗</button></div></section>
-    <aside class="object-index" aria-label="Portfolio sections"><p class="eyebrow">EXPLORE THE PORTFOLIO</p><div class="destinations"><button data-section="projects">Selected Work <b>↗</b></button><button data-section="journey">Journey <b>↗</b></button><button data-section="certifications">Certification <b>↗</b></button><button data-section="experiments">External Work <b>↗</b></button><button data-section="contact">Say Hello <b>↗</b></button><button data-section="writes">Writes <b>↗</b></button></div></aside>
+    <section class="intro">
+      <p class="eyebrow">DEVELOPER. MAKER. EXPLORER.</p>
+      <h1>A little room.<br> A world of <em>ideas.</em></h1>
+      <p class="description">I’m Sadiq, a product developer in Chennai.</p>
+      <div class="intro-actions"><button class="primary" data-section="projects">Explore my work
+          <span>↗</span></button><button class="text-button" id="standard">Portfolio index <span>☷</span></button></div>
+    </section>
+    <section class="stage" aria-label="Interactive 3D portfolio room"><canvas id="scene" tabindex="0"
+        aria-label="Room: drag to orbit, scroll to zoom, WASD or arrows to move. Use the section buttons to access all content."></canvas>
+      <div class="stage-caption"><span><i></i> SADIQ’S STUDIO</span><span id="scene-status" role="status">Loading
+          room…</span></div>
+      <div id="loader"><span class="loader-mark">sa.</span>
+        <p id="load-label">Unpacking the studio…</p><progress id="progress" max="100" value="0"></progress><button
+          class="text-button" data-section="projects">Browse portfolio while you wait ↗</button>
+      </div>
+      <div id="tooltip" role="status"></div>
+      <div class="view-tools"><button id="reset" aria-label="Reset camera">↺ <span>Reset view</span></button><button
+          id="quality" aria-label="Toggle scene rendering quality">Eco quality</button><button id="enter-room"
+          class="enter-room" aria-label="Enter 3D room">Enter room ↗</button></div>
+    </section>
+    <aside class="object-index" aria-label="Portfolio sections">
+      <p class="eyebrow">EXPLORE THE PORTFOLIO</p>
+      <div class="destinations"><button data-section="projects">Selected Work <b>↗</b></button><button
+          data-section="journey">Journey <b>↗</b></button><button data-section="certifications">Certification
+          <b>↗</b></button><button data-section="experiments">External Work <b>↗</b></button><button
+          data-section="contact">Say Hello <b>↗</b></button><button data-section="writes">Writes <b>↗</b></button></div>
+    </aside>
   </main>
-  <footer><span>CHENNAI, INDIA <span class="clock" id="clock"></span></span><div class="footer-contact"><a href="tel:+919791622030">CALL: +91 97916 22030 ↗</a><span class="separator">·</span><a href="https://wa.me/919791622030" target="_blank" rel="noopener noreferrer">CHAT: +91 97916 22030 ↗</a></div><a href="https://github.com/ASSA2004" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></footer>
-  <dialog id="details" aria-labelledby="detail-title"><div class="dialog-top"><span id="detail-number" class="eyebrow">INSIDE THE STUDIO</span><button id="close" aria-label="Close portfolio panel">✕</button></div><div id="detail-body"></div><div class="dialog-footer"><span>SADIQ ALI / PORTFOLIO</span><button id="back-room">Back to the room ↙</button></div></dialog>
+  <footer><span>CHENNAI, INDIA <span class="clock" id="clock"></span></span>
+    <div class="footer-contact"><a href="tel:+919791622030">CALL ↗</a><span class="separator">·</span><a
+        href="https://wa.me/919791622030" target="_blank" rel="noopener noreferrer">CHAT ↗</a></div><a
+      href="https://github.com/ASSA2004" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+  </footer>
+  <dialog id="details" aria-labelledby="detail-title">
+    <div class="dialog-top"><span id="detail-number" class="eyebrow">INSIDE THE STUDIO</span><button id="close"
+        aria-label="Close portfolio panel">✕</button></div>
+    <div id="detail-body"></div>
+    <div class="dialog-footer"><span>SADIQ ALI / PORTFOLIO</span><button id="back-room">Back to the room ↙</button>
+    </div>
+  </dialog>
   <script type="module" src="./app.js"></script>
 </body>
+
 </html>
