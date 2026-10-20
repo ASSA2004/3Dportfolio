@@ -6,6 +6,7 @@
   "description": "A lightweight interactive Three.js studio portfolio",
   "scripts": {
     "start": "python server.py",
+    "build": "node --check app.js",
     "check": "node --check app.js",
     "test": "node test-controls.mjs",
     "verify": "python check_project.py"
