@@ -33,7 +33,7 @@ The normal page navigation is **Selected Work, Journey, Certification, External 
 
 The owner-selected retrospective dates are 17 April 2026 (last-minute brain article), 23 July 2026 (hidden cost article), and 21 October 2026 (better decisions article). These are display dates, not an automated publishing schedule.
 
-External Work includes Zainova (`zainovatech.com`) and Zian Architects (`zianarchitects.com`). Kaasukanukku appears under External Work, Selected Work, and Mobile Development as a personal/business expense tracker for founders built with React Native and SQLite. No app store link has been supplied.
+External Work includes Zainova (`zainovatech.com`) and Zian Architects (`zianarchitects.com`). Kaasukanukku appears under External Work, Selected Work, and Mobile Development as a personal/business expense tracker for founders built with React Native and SQLite, with live links for its APK file and PWA.
 
 The studio fills the browser page without requesting operating-system fullscreen. The small control guide sits at the top-left under the toolbar.
 

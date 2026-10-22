@@ -14,7 +14,10 @@ const content = {
     ['MOBILE / FAMILY DATA', 'Mifamily', 'A multi-generational family platform for lineage trees, relationship history, and generational archives.', 'React Native · Next.js · Express.js'],
     ['CREATIVE DEVELOPMENT / WEB', 'Zian Architects', 'An architectural showcase exploring spatial presentation and interactive 3D elements.', 'Next.js · Tailwind CSS · 3D visualization', 'https://zianarchitects.com/'],
     ['AGENCY / WEB', 'Zainova Technology Solution', 'An agency website featuring motion, service presentation, and lead enquiry workflows.', 'Next.js · Motion · Interface development', 'https://zainovatech.com/'],
-    ['MOBILE / FOR FOUNDERS', 'Kaasukanukku', 'A life and a business. An expense tracker built specifically for founders to track personal and business expenses.', 'React Native · SQLite']
+    ['MOBILE / FOR FOUNDERS', 'Kaasukanukku', 'A life and a business. An expense tracker built specifically for founders to track personal and business expenses.', 'React Native · SQLite', [
+      ['APK', 'https://kaasukanukku-olive.vercel.app/KaasuKanukku.apk'],
+      ['PWA', 'https://kaasukanukku-olive.vercel.app/app/']
+    ]]
   ]},
   journey: { title: 'Always building forward.', label: '02 / THE JOURNEY', intro: 'From freelance projects to delivering client software and immersive web experiences.', items: [
     ['FEB 2026 — PRESENT', 'Software Associate · Zainova', 'End-to-end client software, web and mobile architecture, platform performance, Tier-2 technical support, and stakeholder coordination.'],
@@ -32,7 +35,10 @@ const content = {
   experiments: { title: 'External Work', label: '04 / EXTERNAL WORK', intro: 'Client websites, mobile products, and ideas explored through code.', items: [
     ['AGENCY / WEB', 'Zainova Technology Solution', 'An agency website featuring motion, service presentation, and lead enquiry workflows.', 'Next.js · Motion · Interface development', 'https://zainovatech.com/'],
     ['ARCHITECTURE / WEB', 'Zian Architects', 'An architectural showcase exploring spatial presentation and interactive 3D elements.', 'Next.js · Tailwind CSS · 3D visualization', 'https://zianarchitects.com/'],
-    ['MOBILE / FOR FOUNDERS', 'Kaasukanukku', 'A life and a business. An expense tracker built specifically for founders to track personal and business expenses.', 'React Native · SQLite'],
+    ['MOBILE / FOR FOUNDERS', 'Kaasukanukku', 'A life and a business. An expense tracker built specifically for founders to track personal and business expenses.', 'React Native · SQLite', [
+      ['APK', 'https://kaasukanukku-olive.vercel.app/KaasuKanukku.apk'],
+      ['PWA', 'https://kaasukanukku-olive.vercel.app/app/']
+    ]],
     ['THREE.JS / WEBGL', 'Solar System 3D', 'An interactive exploration of planets and spatial orbits.', 'Three.js · JavaScript', 'https://github.com/ASSA2004/3DSolarSystem'],
     ['GAME DEVELOPMENT', 'MazMagic 2D/3D', 'Maze generation and navigation, with 2D and 3D visualization.', 'Processing · Algorithms', 'https://github.com/ASSA2004/MazMagic2D'],
     ['PYTHON / PYGAME', 'MemoryBox', 'A memory sequence game with grid patterns and progressive difficulty.', 'Python · Pygame', 'https://github.com/ASSA2004/Mem_box_game'],
@@ -44,7 +50,10 @@ const content = {
     ['LANGUAGE TOOL', 'Translator', 'A Streamlit translation application with voice recognition and speech translation.', 'Python · Streamlit', 'https://github.com/ASSA2004/Streamlit_Translator']
   ]},
   mobile: { title: 'Products that go with you.', label: 'PHONE / MOBILE DEVELOPMENT', intro: 'Cross-platform mobile applications with React Native.', items: [
-    ['FOR FOUNDERS / EXPENSE TRACKING', 'Kaasukanukku', 'A life and a business. An expense tracker built specifically for founders to track personal and business expenses.', 'React Native · SQLite'],
+    ['FOR FOUNDERS / EXPENSE TRACKING', 'Kaasukanukku', 'A life and a business. An expense tracker built specifically for founders to track personal and business expenses.', 'React Native · SQLite', [
+      ['APK', 'https://kaasukanukku-olive.vercel.app/KaasuKanukku.apk'],
+      ['PWA', 'https://kaasukanukku-olive.vercel.app/app/']
+    ]],
     ['FAMILY & RELATIONSHIPS', 'Mifamily', 'A family data management platform for exploring multi-generational lineage and relational history.', 'React Native · Express.js · Data visualization']
   ]},
   education: { title: 'Where it began.', label: 'FRAME / EDUCATION', intro: 'A foundation in computer science and a habit of learning by building.', items: [['2022 — 2026', 'B.Tech · Computer Science Engineering', 'BSA Crescent Institute of Science & Technology. Software engineering, algorithms, full-stack development, and system design.'], ['2020 — 2022', 'Higher Secondary Certificate', 'Imam Shafi Higher Secondary School. Physics, chemistry, mathematics, and computer science.']]},
@@ -79,7 +88,16 @@ function openPost(id){
 }
 function entry(item) {
   const [label,title,description,tags,url] = item;
-  return `<article class="entry"><small>${label}</small><h3>${title}</h3><p>${description}</p>${tags?`<div class="tags">${tags}</div>`:''}${url?`<a href="${url}" target="_blank" rel="noopener noreferrer">${url.includes('github.com')?'View source':'Visit website'} ↗</a>`:''}</article>`;
+  let linkHtml = '';
+  if (Array.isArray(url)) {
+    linkHtml = url.map(([name, href]) => {
+      const isApk = href.endsWith('.apk') || name.toLowerCase().includes('apk');
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer"${isApk ? ' download' : ''}>${name} ↗</a>`;
+    }).join('');
+  } else if (url) {
+    linkHtml = `<a href="${url}" target="_blank" rel="noopener noreferrer">${url.includes('github.com')?'View source':'Visit website'} ↗</a>`;
+  }
+  return `<article class="entry"><small>${label}</small><h3>${title}</h3><p>${description}</p>${tags?`<div class="tags">${tags}</div>`:''}${linkHtml}</article>`;
 }
 function openSection(key, move=true) {
   if (!content[key]) return;

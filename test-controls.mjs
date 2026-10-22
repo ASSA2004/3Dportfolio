@@ -95,6 +95,11 @@ assert.ok(!get('detail-body').innerHTML.includes(posts[0].paragraphs[0]),'Writes
 run(`openPost('${posts[0].id}')`);
 assert.match(get('detail-body').innerHTML,/All Writes/);
 assert.match(get('detail-body').innerHTML,/understanding why we are creating it in the first place/);
+run("openSection('projects')");
+assert.match(get('detail-body').innerHTML,/https:\/\/kaasukanukku-olive\.vercel\.app\/KaasuKanukku\.apk/);
+assert.match(get('detail-body').innerHTML,/https:\/\/kaasukanukku-olive\.vercel\.app\/app\//);
+assert.match(get('detail-body').innerHTML,/>APK ↗<\/a>/);
+assert.match(get('detail-body').innerHTML,/>PWA ↗<\/a>/);
 run('closePanel(); setImmersive(true); resetWalk()');key('w');document.emit('visibilitychange');
 assert.equal(run('keys.size'),0);
 assert.equal(run('canStand(-2.5,0)'),false);assert.equal(run('canStand(0,2.1)'),false);
