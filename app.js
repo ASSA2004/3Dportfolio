@@ -153,10 +153,14 @@ function walkPose(){camera.rotation.set(pitch,yaw,0,'YXZ');}
 function resetWalk(){camera.position.set(.9,1.62,1.75);yaw=.20;pitch=-.08;walkPose();}
 function setNavigation(mode){
   if(!camera)return;
+  const wasWalking=walking();
   keys.clear();tween=null;navigation=mode;
   if(document.pointerLockElement===canvas)document.exitPointerLock();
   controls.enabled=!walking();camera.fov=walking()?70:36;camera.updateProjectionMatrix();
-  if(walking())resetWalk();else{camera.position.copy(home);controls.target.copy(homeTarget);controls.update();}
+  if(walking())resetWalk();
+  else if(wasWalking){camera.position.copy(home);controls.target.copy(homeTarget);controls.update();}
+  else{controls.update();}
+  document.body.classList.toggle('walking',walking());
   $('walk-mode').setAttribute('aria-pressed',String(mode==='walk'));
   $('orbit-mode').setAttribute('aria-pressed',String(mode==='orbit'));
   $('crosshair').hidden=!walking();$('capture-mouse').hidden=!walking();
@@ -165,9 +169,9 @@ function setNavigation(mode){
   $('scene-status').textContent=walking()?'Walk mode · eye level':'Drag to explore';
   canvas.setAttribute('aria-label',walking()?'Walking view: WASD or arrows to move, mouse look, E to interact. Escape releases mouse.':'Orbit view: drag to rotate, scroll to zoom, click objects for portfolio details.');
 }
-function setImmersive(value){
+function setImmersive(value,mode='orbit'){
   immersive=value;document.body.classList.toggle('immersive',value);$('game-hud').hidden=!value;
-  setNavigation(value?'walk':'orbit');
+  setNavigation(value?mode:'orbit');
 }
 $('enter-room').onclick=()=>setImmersive(true);$('exit-room').onclick=()=>setImmersive(false);
 $('walk-mode').onclick=()=>setNavigation('walk');$('orbit-mode').onclick=()=>setNavigation('orbit');

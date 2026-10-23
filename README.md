@@ -10,7 +10,7 @@ Open a terminal in this folder and run `python server.py`, then visit **http://l
 
 ### Two experiences
 
-The page starts in **Portfolio view**, with the original room overview and readable navigation. Click **Enter 3D room** for an immersive full-window room. Inside this view, switch between **Walk** and **Orbit** using the toolbar; **Portfolio view** returns to the normal page.
+The page starts in **Portfolio view**, with the original room overview and readable navigation. Click **Enter room** for an immersive full-window room. Inside this view, **Orbit** is active by default and **Walk** is selectable using the toolbar; **Portfolio view** returns to the normal page.
 
 **Walk:** fixed 1.62 m eye height, WASD or arrows for forward/back/strafe relative to your viewing direction. Click **Click to look around** to capture the mouse, then move the mouse to look. Aim at an object and click or press **E** to open it. Escape releases the mouse so you can use the toolbar. Opening details also releases the mouse; close the panel and click the look button to resume. If mouse capture is unavailable, drag to look and click objects normally. Walking includes room bounds and simple padded bounding-box obstacles for the desk, chair, backpack, plant, and solar display. This is lightweight navigation, not a full physics simulation. Touch users can drag to look; keyboard walking requires a keyboard, and Orbit is available for touch exploration.
 

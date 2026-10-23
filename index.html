@@ -18,13 +18,13 @@
       rel="noopener noreferrer"><i></i> Let’s build something <span>↗</span></a></header>
   <div id="game-hud" hidden>
     <div class="game-toolbar"><button id="exit-room">← Portfolio view</button>
-      <div><button id="walk-mode" aria-pressed="true">Walk</button><button id="orbit-mode"
-          aria-pressed="false">Orbit</button></div><button id="game-index">Portfolio index ☷</button>
+      <div><button id="orbit-mode" aria-pressed="true">Orbit</button><button id="walk-mode"
+          aria-pressed="false">Walk</button></div><button id="game-index">Portfolio index ☷</button>
     </div>
-    <div id="crosshair" aria-hidden="true">+</div>
+    <div id="crosshair" aria-hidden="true" hidden>+</div>
     <div id="walk-prompt">
-      <p id="game-help">WASD / ↑↓←→ move · Mouse look<br>Click / E interact · Esc release</p><button
-        id="capture-mouse">Enable mouse look</button>
+      <p id="game-help">Drag orbit · Scroll zoom<br>Click objects to explore</p><button
+        id="capture-mouse" hidden>Enable mouse look</button>
     </div>
     <p id="aim-label" role="status"></p>
   </div>
